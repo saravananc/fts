@@ -64,7 +64,7 @@ const Contact = () => {
                 type="submit"
                 className="w-32 bg-white hover:bg-rose-dark border border-rose-300 text-rose-600 font-bold text-sm mb-3 py-2 rounded-lg mt-3 hover:bg-white transition ease-in-out duration-300"
               >
-                Submit Now
+                Submit
               </button>
             </div>
           </form>

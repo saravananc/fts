@@ -6,9 +6,9 @@ const Header = () => {
     <>
       <div className="flex justify-between">
         <img className="h-10" src={Images.Logo} alt="FTS Logo" />
-        <p className="flex items-center text-sm font-semibold text-purple-600 text-end">
+        <p className="flex items-center text-sm font-semibold text-fuchsia-700 text-end">
           <Icon icon="ph:phone-thin" />
-          +91 9566149996
+          +91 8438385454
         </p>
       </div>
     </>

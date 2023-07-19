@@ -6,7 +6,7 @@
  
  {/* sidebar-mobile-starts */}
  <div className="lg:hidden relative max-w-sm overflow-y-scroll bg-white border border-gray-100  dark:bg-gray-700 dark:border-gray-600 rounded-xl h-96">
- <div className="fixed bottom-0 left-0 z-50 w-full h-16 bg-white border-t rounded-t-xl border-gray-200 dark:bg-gray-700 dark:border-gray-600">
+ <div className="fixed bottom-0 left-0 z-50 w-full h-16 bg-white border-t rounded-t-full border-gray-200 dark:bg-gray-700 dark:border-gray-600">
    <div className="grid h-full max-w-lg grid-cols-5 mx-auto">
      <button
        type="button"

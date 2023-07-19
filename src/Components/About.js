@@ -14,7 +14,7 @@ const About = () =>
                 </article>
                 <div className="grid gap-4 md:grid-cols-4 my-16  ">
                     
-                    <div className="flex flex-col justify-between items-center space-y-10 md:m-0  lg:m-5 border lg:border-0 rounded-xl w-full aspect-video">
+                    <div className="flex flex-col justify-between items-center space-y-10 md:m-0  lg:m-5 border rounded-xl w-full aspect-video">
                         <img className="h-14" src={Images.ALearners} alt="FTS learners"/>
 
                         <div className="flex justify-center items-center  ">
@@ -24,7 +24,7 @@ const About = () =>
                             </div>
                         </div>
                     </div>
-                    <div className="flex flex-col justify-between items-center space-y-10 md:m-0  lg:m-5 border lg:border-0 rounded-xl lg:w-full lg:aspect-square ">
+                    <div className="flex flex-col justify-between items-center space-y-10 md:m-0  lg:m-5 border rounded-xl lg:w-full lg:aspect-square ">
                         <img className="h-14 mt-0 lg:mt-28" src={Images.ACourses} alt="FTS courses"/>
                         <div className="flex justify-center items-center">
                             <div className="flex flex-col items-center">
@@ -34,7 +34,7 @@ const About = () =>
                         </div>
                     </div>
                
-                    <div className="flex flex-col justify-between items-center space-y-10 md:m-0  lg:m-5 border lg:border-0 rounded-xl w-full aspect-video">
+                    <div className="flex flex-col justify-between items-center space-y-10 md:m-0  lg:m-5 border rounded-xl w-full aspect-video">
                         <img className="h-14" src={Images.AAwards} alt="FTS awards"/>
                         <div className="flex justify-center items-center ">
                             <div className="flex flex-col items-center">
@@ -43,7 +43,7 @@ const About = () =>
                             </div>
                         </div>
                     </div>
-                    <div className="flex flex-col justify-between items-center space-y-10 md:m-0  lg:m-5 border lg:border-0 rounded-xl lg:w-full lg:aspect-square">
+                    <div className="flex flex-col justify-between items-center space-y-10 md:m-0  lg:m-5 border rounded-xl lg:w-full lg:aspect-square">
                         <img className="h-14 mt-0 lg:mt-28" src={Images.AEnroll} alt="FTS enroll"/>
                         <div className="flex justify-center items-center">
                             <div className="flex flex-col items-center">

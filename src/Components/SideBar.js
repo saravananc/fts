@@ -15,31 +15,31 @@ const SideBar = () => {
       <div className="flex flex-col justify-between items-center md:space-y-12 lg:space-y-14 xl:space-y-16">
         <a
           href="/"
-          className="font-semibold hover:text-3xl hover:font-normal"
+          className="font-semibold hover:text-xl hover:font-normal"
         >
           Home
         </a>
         <a
           href="/about"
-          className="font-semibold hover:text-3xl hover:font-normal"
+          className="font-semibold hover:text-xl hover:font-normal"
         >
           About
         </a>
         <a
           href="/courses"
-          className="font-semibold hover:text-3xl hover:font-normal"
+          className="font-semibold hover:text-xl hover:font-normal"
         >
           Courses
         </a>
         <a
           href="/benefits"
-          className="font-semibold hover:text-3xl hover:font-normal"
+          className="font-semibold hover:text-xl hover:font-normal"
         >
           Benefits
         </a>
         <a
           href="/contact"
-          className="font-semibold hover:text-3xl hover:font-normal"
+          className="font-semibold hover:text-xl hover:font-normal"
         >
           Contact
         </a>

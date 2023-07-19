@@ -32,13 +32,13 @@ const SideBar = () => {
           Courses
         </a>
         <a
-          href="/benefits.html"
+          href="/benefits"
           className="font-semibold hover:text-3xl hover:font-normal"
         >
           Benefits
         </a>
         <a
-          href="/contact.html"
+          href="/contact"
           className="font-semibold hover:text-3xl hover:font-normal"
         >
           Contact

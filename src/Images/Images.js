@@ -21,5 +21,5 @@ export const Images = {
   BCertificate:require("./certificate.png"),
   BVarioustech:require("./various-tech.png"),
   BLivetech:require("./live-technology.png"),
-  
+  Contact :require("./contact-us.jpg"),
 };

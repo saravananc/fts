@@ -6,6 +6,8 @@ import HomeScreen from "./Components/HomeScreen";
 import MobileSidebar from "./Components/MobileSidebar";
 import SideBar from "./Components/SideBar";
 import Courses from "./Components/Courses";
+import Benefits from "./Components/Benefits";
+import Contact from "./Components/Contact";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
               <Route path="/" element={<HomeScreen />} />
               <Route path="/about" element={<About />} />
               <Route path="/courses" element={<Courses />} />
+              <Route path="/benefits" element={<Benefits />} />
+              <Route path="/contact" element={<Contact />} />
             </Routes>
           </div>
         </div>

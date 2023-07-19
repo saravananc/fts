@@ -10,6 +10,9 @@
    <div className="grid h-full max-w-lg grid-cols-5 mx-auto">
      <button
        type="button"
+       onClick={() => {
+        window.location.pathname = "/";
+      }}
        className="inline-flex flex-col items-center justify-center font-medium px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group"
      >
        <img
@@ -26,6 +29,9 @@
 
      <button
        type="button"
+       onClick={() => {
+        window.location.pathname = "/about";
+      }}
        className="inline-flex flex-col items-center justify-center font-medium px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group"
      >
        <img
@@ -40,6 +46,9 @@
      </button>
      <button
        type="button"
+       onClick={() => {
+        window.location.pathname = "/courses";
+      }}
        className="inline-flex flex-col items-center justify-center font-medium px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group"
      >
        <img
@@ -54,6 +63,9 @@
      </button>
      <button
        type="button"
+       onClick={() => {
+        window.location.pathname = "/benefits";
+      }}
        className="inline-flex flex-col items-center justify-center font-medium px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group"
      >
        <img
@@ -68,6 +80,9 @@
      </button>
      <button
        type="button"
+       onClick={() => {
+        window.location.pathname = "/contact";
+      }}
        className="inline-flex flex-col items-center justify-center font-medium px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group"
      >
        <img

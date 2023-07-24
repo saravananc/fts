@@ -62,7 +62,7 @@ const Contact = () => {
             <div className="self-end mt-2">
               <button
                 type="submit"
-                className="w-32 bg-white hover:bg-rose-dark border border-rose-300 text-rose-600 font-bold text-sm mb-3 py-2 rounded-lg mt-3 hover:bg-white transition ease-in-out duration-300"
+                className="w-32 bg-white hover:bg-rose-dark border border-rose-300 text-rose-600 font-bold text-sm  py-2 mb-10 rounded-lg mt-3 hover:bg-white transition ease-in-out duration-300"
               >
                 Submit
               </button>

@@ -22,4 +22,5 @@ export const Images = {
   BVarioustech:require("./various-tech.png"),
   BLivetech:require("./live-technology.png"),
   Contact :require("./contact-us.jpg"),
+  AdminProfile :require("./adminprofile.png"),
 };

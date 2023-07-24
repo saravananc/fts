@@ -6,7 +6,7 @@ const Footer =()=>
     return(
         <>
 
-         <div className="lg:hidden w-full ">
+         {/* <div className="lg:hidden w-full ">
                     <div className="pb-20 flex flex-col px-3">
                         <div className="flex justify-between py-2">
                             <div className="flex items-center space-x-1">
@@ -24,7 +24,7 @@ const Footer =()=>
                             <p>Copyrights &copy; ftsacademy.com 2023</p>
                         </div>
                     </div>
-                </div>
+                </div> */}
         <div className="hidden lg:block fixed bottom-0 w-10/12">
                     <div
                         className="py-1 md:py-5 mb-16 md:mb-0 flex justify-between pr-10 flex-col items-center md:flex-row md:items-center md:space-x-2 bg-gray-100">

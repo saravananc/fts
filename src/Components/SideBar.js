@@ -3,11 +3,9 @@ import { Icon } from "@iconify/react";
 const SideBar = () => {
   return (
     <>
-     
       {/* side-lg-starts */}
-
-      <div>
-        <button className="rounded-lg border-solid border-2 text-sm border-rose-300 hover:border-rose-400 text-rose-600 hover:text-rose-700 bg-gray-100 py-3 pl-8 pr-8 md:w-full h-15">
+      <div className="mx-auto">
+        <button className="rounded-lg border-solid border-2 text-sm text-white bg-rose-500 hover:bg-rose-700 hover:shadow-md pl-8 pr-8 py-3">
           Enroll Now
         </button>
       </div>
@@ -54,8 +52,30 @@ const SideBar = () => {
         </button>
       </div>
 
+      {/* Additional button */}
+    
+      <div className="absolute top-1/2 right-0 transform -translate-y-1/2 ">
+  <button
+    onClick={() => {
+      window.location.pathname = "/admin";
+    }}
+    className="skew-y-12  rounded-full text-sm text-white bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:bg-rose-700 hover:shadow-md pt-8 pb-8 py-1"
+  >
+    {/* Button Text */}
+    <div className="flex flex-col items-center p-2 font-bold">
+      <span>A</span>
+      <span>D</span>
+      <span>M</span>
+      <span>I</span>
+      <span>N</span>
+    </div>
+  </button>
+</div>
+
+
       {/* side-lg-ends */}
     </>
   );
 };
+
 export default SideBar;

@@ -61,7 +61,7 @@ const HomeScreen =()=>
                             </div>
                         </div>
                     </div>
-                    <div className="text-center md:text-right  pb-2 md:pb-12 md:py-20">
+                    <div className="text-center md:text-right  pb-2 md:pb-12 md:py-20 mb-10">
                         <button
                             className="rounded-lg border-solid border-2 text-sm text-white bg-rose-600 hover:bg-rose-500 hover:shadow-md pl-8 pr-8 py-3">
                             Register Now

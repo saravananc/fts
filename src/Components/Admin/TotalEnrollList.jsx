@@ -83,28 +83,28 @@ const TotalEnrollList = () => {
           placeholder="Search by name"
           value={searchTerm}
           onChange={handleSearchInputChange}
-          className="px-4 py-1 border border-gray-500 focus:outline-none rounded-xl ms-2 md:ms-0"
+          className="px-4 py-1 border border-gray-300 focus:outline-none rounded-xl ms-2 md:ms-0"
         />
       </div>
       
       </div>
-<div className="w-full overflow-x-auto">
+<div className="w-full overflow-x-auto rounded-3xl">
       <table className="w-full border-collapse border border-gray-500 ">
-        <thead className="sticky top-0 bg-gray-200">
+        <thead className="sticky top-0 bg-indigo-100">
           <tr>
-            <th className="border border-gray-500 px-4 py-2 whitespace-nowrap">Name</th>
-            <th className="border border-gray-500 px-4 py-2 whitespace-nowrap">Email</th>
-            <th className="border border-gray-500 px-4 py-2 whitespace-nowrap">Phone No</th>
-            <th className="border border-gray-500 px-4 py-2 whitespace-nowrap">Message</th>
+            <th className="border border-gray-300 px-4 py-2 whitespace-nowrap">Name</th>
+            <th className="border border-gray-300 px-4 py-2 whitespace-nowrap">Email</th>
+            <th className="border border-gray-300 px-4 py-2 whitespace-nowrap">Phone No</th>
+            <th className="border border-gray-300 px-4 py-2 whitespace-nowrap">Message</th>
           </tr>
         </thead>
         <tbody>
           {currentData.map((row, index) => (
-            <tr key={index} className={index % 2 === 0 ? "bg-gray-100" : "bg-white"}>
-              <td className="border border-gray-500 px-4 py-2 whitespace-nowrap">{row.name}</td>
-              <td className="border border-gray-500 px-4 py-2 whitespace-nowrap">{row.email}</td>
-              <td className="border border-gray-500 px-4 py-2 whitespace-nowrap">{row.phone}</td>
-              <td className="border border-gray-500 px-4 py-2 whitespace-nowrap">{row.message}</td>
+            <tr key={index} className={index % 2 === 0 ? "bg-indigo-100" : "bg-indigo-100"}>
+              <td className="border border-gray-300 px-4 py-2 whitespace-nowrap text-center">{row.name}</td>
+              <td className="border border-gray-300 px-4 py-2 whitespace-nowrap text-center">{row.email}</td>
+              <td className="border border-gray-300 px-4 py-2 whitespace-nowrap text-center">{row.phone}</td>
+              <td className="border border-gray-300 px-4 py-2 whitespace-nowrap">{row.message}</td>
             </tr>
           ))}
         </tbody>

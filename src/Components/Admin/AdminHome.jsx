@@ -25,10 +25,10 @@ const AdminHome = () => {
       </div>
 
       {/* Table */}
-      <div className="w-full overflow-x-auto">
-        <table className="w-full border-collapse border border-gray-100">
-          <thead>
-            <tr className="bg-gray-200">
+      <div className="w-full overflow-x-auto rounded-3xl">
+        <table className="w-full border-collapse border bg-indigo-100">
+          <thead >
+            <tr className="bg-indigo-100">
               <th className="border border-gray-300 px-4 py-2 whitespace-nowrap">Name</th>
               <th className="border border-gray-300 px-4 py-2 whitespace-nowrap">Email</th>
               <th className="border border-gray-300 px-4 py-2 whitespace-nowrap">Phone No</th>
@@ -37,11 +37,11 @@ const AdminHome = () => {
           </thead>
           <tbody>
             {tableData.map((row, index) => (
-              <tr key={index} className={index % 2 === 0 ? "bg-gray-100" : "bg-white"}>
-                <td className="border border-gray-300 px-4 py-2 whitespace-nowrap">{row.name}</td>
-                <td className="border border-gray-300 px-4 py-2 whitespace-nowrap">{row.email}</td>
-                <td className="border border-gray-300 px-4 py-2 whitespace-nowrap">{row.phone}</td>
-                <td className="border border-gray-300 px-4 py-2 whitespace-nowrap">{row.message}</td>
+              <tr key={index} className={index % 2 === 0 ? "bg-indigo-100" : "bg-indigo-100"}>
+                <td className="border border-gray-300 px-4 py-2 whitespace-nowrap text-center">{row.name}</td>
+                <td className="border border-gray-300 px-4 py-2 whitespace-nowrap text-center">{row.email}</td>
+                <td className="border border-gray-300 px-4 py-2 whitespace-nowrap text-center">{row.phone}</td>
+                <td className="border border-gray-300 px-4 py-2 whitespace-nowrap ">{row.message}</td>
               </tr>
             ))}
           </tbody>

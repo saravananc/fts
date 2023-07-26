@@ -41,7 +41,7 @@ const AdminDashboard = () => {
 // Function to handle logout
 const handleLogout = () => {
   
-  // clear session/local storage, redirect to login page, etc.
+  
 };
 
   return (
@@ -181,7 +181,7 @@ const handleLogout = () => {
         ref={contentRef}
         className={`content ${
           isSidebarOpen ? "md:ml-60" : "ml-12"
-        } transform ease-in-out duration-500 pt-20 px-2 md:px-5 pb-4 bg-indigo-200`}
+        } transform ease-in-out duration-500 pt-20 px-2 md:px-5 pb-4 bg-indigo-200 h-screen`}
       >
         {/* Main content */}
         <div className=" mb-5 -mx-2">

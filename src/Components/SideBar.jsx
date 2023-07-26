@@ -59,7 +59,7 @@ const SideBar = () => {
     onClick={() => {
       window.location.pathname = "/admin";
     }}
-    className="skew-y-12  rounded-full text-sm text-white bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:bg-rose-700 hover:shadow-md pt-8 pb-8 py-1"
+    className="skew-y-12  rounded-full text-sm text-white bg-rose-300 hover:bg-rose-700 hover:shadow-md pt-8 pb-8 py-1"
   >
     {/* Button Text */}
     <div className="flex flex-col items-center p-2 font-bold">

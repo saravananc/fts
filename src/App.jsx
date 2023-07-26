@@ -16,7 +16,7 @@ function App() {
   <>
     {window.location.pathname!=='/admin'&&window.location.pathname!=='/admin/dashboard'?<Router>
       <div className="flex">
-          <div class="w-full lg:w-10/12 flex flex-col justify-between">
+          <div className="w-full lg:w-10/12 flex flex-col justify-between">
           <div className="px-3 md:px-10 py-8 ms-0 md:ms-5">
             <Header />
             <Routes>

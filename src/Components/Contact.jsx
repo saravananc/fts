@@ -8,25 +8,24 @@ import { contactApi } from "../API";
 
 
 const schema = yup.object().shape({
-  Name: yup
+  name: yup
     .string()
     .required("Name is required.")
     .min(3, "Name must be at least 3 characters long."),
-  Email: yup
+  email: yup
     .string()
     .required("Email is required.")
     .email("Please enter a valid email."),
-  MobileNumber: yup
+  phone_number: yup
     .string()
     .required("Mobile Number is required.")
-    .max(10, "Max 10 chars."),
-  Message: yup
+    .max(10, "Max 10 digits."),
+  message: yup
     .string()
     .required("Message is required."),
 });
 
 const Contact = () => {
-
   const {
     register,
     handleSubmit,
@@ -47,6 +46,7 @@ const Contact = () => {
       console.error("Error:", error);
     });
   };
+ 
   return (
     <>
       <article className="mt-10">
@@ -70,31 +70,31 @@ const Contact = () => {
         <div className="flex flex-col justify-center p-2">
           <form className="flex flex-col mt-5 lg:mt-0"onSubmit={handleSubmit(onSubmit)}>
             <div className="flex flex-col">
-              <label className="text-rose-600 text-sm" for="name">
+              <label className="text-rose-600 text-sm" htmlFor="name">
                 Name
               </label>
               <input
                 type="name"               
                 placeholder="Enter Name"
-                {...register("Name")}
+                {...register("name")}
                 className="w-100 mt-2 py-3 px-3 bg-white dark:bg-gray-800 border border-b-gray-400 dark:border-gray-700 text-gray-800 font-normal focus:border-indigo-500 focus:outline-none"               
               />
-               {errors.Name && (
-                          <span className="text-red-600">{errors.Name.message}</span>
+               {errors.name && (
+                          <span className="text-red-600">{errors.name.message}</span>
                         )}
             </div>
             <div className="flex flex-col mt-2">
-              <label className="text-rose-600 text-sm" for="email">
+              <label className="text-rose-600 text-sm" htmlFor="email">
                 Email
               </label>
               <input
                 type="email"
                 placeholder="Enter Email"
-                {...register("Email")}
+                {...register("email")}
                 className="w-100 mt-2 py-3 px-3 bg-white dark:bg-gray-800 border border-b-gray-400 dark:border-gray-700 text-gray-800 font-normal focus:border-indigo-500 focus:outline-none"
               />
-                {errors.Email && (
-                          <span className="text-red-600">{errors.Email.message}</span>
+                {errors.email && (
+                          <span className="text-red-600">{errors.email.message}</span>
                         )}
             </div>
             <div className="flex flex-col mt-2">
@@ -104,26 +104,26 @@ const Contact = () => {
               <input
                 type="text"
                 placeholder="Enter Mobile Number"
-                {...register("MobileNumber")}
+                {...register("phone_number")}
                 className="w-100 mt-2 py-3 px-3 bg-white dark:bg-gray-800 border border-b-gray-400 dark:border-gray-700 text-gray-800 font-normal focus:border-indigo-500 focus:outline-none"
               />
-                {errors.MobileNumber && (
-                          <span className="text-red-600">{errors.MobileNumber.message}</span>
+                {errors.phone_number && (
+                          <span className="text-red-600">{errors.phone_number.message}</span>
                         )}
             </div>
 
             <div className="flex flex-col mt-2">
-              <label className="text-rose-600 text-sm" for="message">
+              <label className="text-rose-600 text-sm" htmlFor="message">
               Message
               </label>
               <input
                 type="mesage"
                 placeholder="Enter Message"
-                {...register("Message")}
+                {...register("message")}
                 className="w-100 mt-2 py-3 px-3 bg-white dark:bg-gray-800 border border-b-gray-400 dark:border-gray-700 text-gray-800 font-normal focus:border-indigo-500 focus:outline-none"
               />
-                {errors.Message && (
-                          <span className="text-red-600">{errors.Message.message}</span>
+                {errors.message && (
+                          <span className="text-red-600">{errors.message.message}</span>
                         )}
             </div>
             <div className="self-end mt-2">

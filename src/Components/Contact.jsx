@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { contactApi } from "../API";
-// import '../style.css';
 
 
 const schema = yup.object().shape({
@@ -77,7 +76,7 @@ const Contact = () => {
                 type="name"               
                 placeholder="Enter Name"
                 {...register("name")}
-                className="w-100 mt-2 py-3 px-3 bg-white dark:bg-gray-800 border border-b-gray-400 dark:border-gray-700 text-gray-800 font-normal focus:border-indigo-500 focus:outline-none"               
+                className="w-100 mt-2 py-3 px-3 bg-inherit dark:bg-gray-800 border border-b-gray-400 dark:border-gray-700 text-gray-800 font-normal focus:border-indigo-500 focus:outline-none"               
               />
                {errors.name && (
                           <span className="text-red-600">{errors.name.message}</span>
@@ -91,7 +90,7 @@ const Contact = () => {
                 type="email"
                 placeholder="Enter Email"
                 {...register("email")}
-                className="w-100 mt-2 py-3 px-3 bg-white dark:bg-gray-800 border border-b-gray-400 dark:border-gray-700 text-gray-800 font-normal focus:border-indigo-500 focus:outline-none"
+                className="w-100 mt-2 py-3 px-3 bg-inherit dark:bg-gray-800 border border-b-gray-400 dark:border-gray-700 text-gray-800 font-normal focus:border-indigo-500 focus:outline-none"
               />
                 {errors.email && (
                           <span className="text-red-600">{errors.email.message}</span>
@@ -105,7 +104,7 @@ const Contact = () => {
                 type="text"
                 placeholder="Enter Mobile Number"
                 {...register("phone_number")}
-                className="w-100 mt-2 py-3 px-3 bg-white dark:bg-gray-800 border border-b-gray-400 dark:border-gray-700 text-gray-800 font-normal focus:border-indigo-500 focus:outline-none"
+                className="w-100 mt-2 py-3 px-3 bg-inherit dark:bg-gray-800 border border-b-gray-400 dark:border-gray-700 text-gray-800 font-normal focus:border-indigo-500 focus:outline-none"
               />
                 {errors.phone_number && (
                           <span className="text-red-600">{errors.phone_number.message}</span>
@@ -120,7 +119,7 @@ const Contact = () => {
                 type="mesage"
                 placeholder="Enter Message"
                 {...register("message")}
-                className="w-100 mt-2 py-3 px-3 bg-white dark:bg-gray-800 border border-b-gray-400 dark:border-gray-700 text-gray-800 font-normal focus:border-indigo-500 focus:outline-none"
+                className="w-100 mt-2 py-3 px-3 bg-inherit dark:bg-gray-800 border border-b-gray-400 dark:border-gray-700 text-gray-800 font-normal focus:border-indigo-500 focus:outline-none"
               />
                 {errors.message && (
                           <span className="text-red-600">{errors.message.message}</span>
@@ -138,6 +137,8 @@ const Contact = () => {
           </form>
         </div>
       </div>
+
+     
     </>
   );
 };

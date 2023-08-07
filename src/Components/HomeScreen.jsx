@@ -1,10 +1,12 @@
+import { useNavigate } from "react-router-dom";
 import { Images } from "../Images/Images";
 
 const HomeScreen =()=>
 {
+    const navigate =useNavigate();
     return(
     <>
-       <div className="mt-10 md:grid md:grid-cols-2">
+       <div className="mt-10 md:mt-0 md:grid md:grid-cols-2">
                     <div className="md:mt-12 flex flex-col justify-evenly">
                         <p className="text-xl text-gray-400 font-semibold md:text-2xl lg:text-4xl">
                             Does Coding Fascinate You?
@@ -28,7 +30,7 @@ const HomeScreen =()=>
                     </div>
                 </div>
                 <div className="">
-                    <div className="grid grid-cols-1 md:grid-cols-3 mt-2">
+                    <div className="grid grid-cols-1 md:grid-cols-3 mt-2 md:mt-0">
                         <div className="border rounded-lg mx-0 md:mr-5 my-2 md:my-0 p-2 lg:p-6 flex justify-between">
                             <div>
                                 <p className="text-black text-start text-xl my-2 ms-2">Courses</p>
@@ -61,8 +63,9 @@ const HomeScreen =()=>
                             </div>
                         </div>
                     </div>
-                    <div className="text-center md:text-right  pb-2 md:pb-12 md:py-20 mb-10">
+                    <div className="text-center md:text-right  pb-2 md:pb-12 md:py-20 mb-10 md:mb-0">
                         <button
+                            onClick={() => navigate("/contact")}
                             className="rounded-lg border-solid border-2 text-sm text-white bg-rose-600 hover:bg-rose-500 hover:shadow-md pl-8 pr-8 py-3">
                             Register Now
                         </button>

@@ -17,8 +17,6 @@ const AdminDashboard = () => {
     setIsSidebarOpen((prevIsOpen) => !prevIsOpen);
   }
 
-
-
   const [selectedContent, setSelectedContent] = useState("home"); // Add state for tracking selected content
 
  
@@ -46,29 +44,13 @@ const handleLogout = () => {
 
   return (
     <>
-      <div className="fixed w-full z-30 flex bg-[#28235C] dark:bg-[#0F172A] p-2 items-center justify-center h-16 px-10">
-        <div className="logo ml-12 text-white dark:text-white  transform ease-in-out duration-500 flex-none h-full flex items-center justify-center">
+      <div className="fixed w-full z-30 flex bg-white dark:bg-[#0F172A] p-2 items-center justify-center h-16 px-10">
+        <div className="logo ml-12 text-black dark:text-white  transform ease-in-out duration-500 flex-none h-full flex items-center justify-center">
           FTS Academy
         </div>
 
         <div className="grow h-full flex items-center justify-center"></div>
-        {/* <div className="flex-none h-full text-center flex items-center justify-center">
-          <div className="flex space-x-3 items-center px-3">
-            <div className="flex-none flex justify-center">
-              <div className="w-8 h-8 flex ">
-                <img
-                  src={Images.AdminProfile}
-                  alt="profile"
-                  className="shadow rounded-full object-cover"
-                />
-              </div>
-            </div>
-
-            <div className="hidden md:block text-sm md:text-md text-black dark:text-white">
-              Admin
-            </div>
-          </div>
-        </div> */}
+        
         <div className="relative">
       {/* Dropdown Button */}
       <button
@@ -86,7 +68,7 @@ const handleLogout = () => {
             </div>
           </div>
 
-          <div className="hidden md:block text-sm md:text-md text-white dark:text-black">
+          <div className="hidden md:block text-sm md:text-md text-black dark:text-black">
             Admin
           </div>
         </div>
@@ -94,10 +76,10 @@ const handleLogout = () => {
 
       {/* Dropdown Menu */}
       {isDropdownOpen && (
-        <div className="absolute right-0 mt-2 py-2 bg-white rounded shadow-md">
+        <div className="absolute right-0 mt-2 py-2 bg-indigo-200 rounded shadow-md">
           <button
             // onClick={handleLogout}
-            className="block px-3 py-1 text-sm text-gray-700 hover:bg-gray-100 w-full text-left focus:outline-none"
+            className="block px-3 py-1 text-sm text-gray-700 hover:text-rose-700 w-full text-left focus:outline-none"
           >
             Logout
           </button>
@@ -181,7 +163,8 @@ const handleLogout = () => {
         ref={contentRef}
         className={`content ${
           isSidebarOpen ? "md:ml-60" : "ml-12"
-        } transform ease-in-out duration-500 pt-20 px-2 md:px-5 pb-4 bg-indigo-200 h-screen`}
+        } transform ease-in-out duration-500 pt-20 px-2 md:px-5 pb-4 bg-indigo-100`}
+        style={{height:"100vh"}}
       >
         {/* Main content */}
         <div className=" mb-5 -mx-2">

@@ -29,7 +29,7 @@ const Benefits = () => {
       ];
   return (
     <>
-      <article className="mt-10">
+      <article className="mt-10 ">
         <p className="text-black text-2xl md:text-4xl ">Our Benefits</p>
         <p className="line-clamp-3 mt-3 text-sm md:text-lg">
           Our courses at FTS Academy are taught by industry experts, ensuring
@@ -38,7 +38,7 @@ const Benefits = () => {
           field.
         </p>
       </article>
-      <div className="grid grid-cols-2 md:grid-cols-3 my-5 md:my-16">
+      <div className="grid grid-cols-2 md:grid-cols-3 my-5 md:my-14">
       {gridItemsData.map((item, index) => (
         <div
           key={index}

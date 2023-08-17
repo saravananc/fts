@@ -1,57 +1,63 @@
 import React, { useEffect, useState } from "react";
 import Axios from 'axios';
+import ReactPaginate from 'react-paginate';
 const LOGIN_URL = process.env.REACT_APP_LOGIN_URL;
 
 const TotalEnrollList = () => {
   const [tableData, setTableData] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
+  const [totalPage, setTotalPage] = useState(0);
 
-  useEffect(() => {
-    const fetchTableData = async () => {
-      try {
-        const token = localStorage.getItem("accesstoken");
+
   
-        if (!token) {
-          throw new Error("Access token not found in local storage");
-        }
-  
-        const headers = {
-          'Authorization': `Bearer ${token}`
-        };
-  
-        const offset = (currentPage - 1) * 10; 
-        const apiUrl = `${LOGIN_URL}admin/getallusers?offset=${offset}&limit=10`;
-  
-        const dashboardResponse = await Axios.get(apiUrl, { headers });
-  
-        if (dashboardResponse.status !== 200) {
-          throw new Error('Network response was not ok');
-        }
-  
-        const responseData = dashboardResponse.data.response;
-        setTableData(responseData.items);
-        setTotalPages(responseData.totalPages);
-      } catch (error) {
-        console.error('Error fetching API:', error);
+
+  const handlePageChange = (data) => {
+    fetchTableData(data.selected+1);
+  };
+ 
+  const fetchTableData = async (data) => {
+    try {
+      const token = localStorage.getItem("accesstoken");
+
+      if (!token) {
+        throw new Error("Access token not found in local storage");
       }
-    };
-    
-    fetchTableData();
-  }, [currentPage]); 
 
-  const handlePageChange = (newPage) => {
-    if (newPage >= 1 && newPage <= totalPages) {
-      setCurrentPage(newPage);
+      const headers = {
+        'Authorization': `Bearer ${token}`
+      };
+
+      
+      const apiUrl = `${LOGIN_URL}admin/getallusers?offset=${data}&limit=10`;
+
+      const dashboardResponse = await Axios.get(apiUrl, { headers });
+
+      if (dashboardResponse.status !== 200) {
+        throw new Error('Network response was not ok');
+      }
+
+      
+      setTableData(dashboardResponse.data.response.paginationOutput.items);
+      
+      setTotalPage(dashboardResponse.data.response.paginationOutput.totalPages);
+    } catch (error) {
+      console.error('Error fetching API:', error);
     }
   };
+  useEffect(() => {
+    fetchTableData(1);
+     // eslint-disable-next-line 
+  }, []); 
+
+
+
  
   return (
     <>
       <div className="flex flex-col-reverse md:flex-row justify-between mb-3">        
         <div className="mt-4 mb-2 ms-3 md:ms-0 text-lg font-bold">
           Total Registrations
-        </div>   
+        </div>  
+        
       </div>
       <div className="w-full overflow-x-auto rounded-3xl">
         <table className="w-full border-collapse border border-gray-500">
@@ -86,26 +92,23 @@ const TotalEnrollList = () => {
           </tbody>
         </table>
       </div>
-      {/* Pagination Controls */}
-      <div className="flex justify-center mt-3">
-        <button
-          onClick={() => handlePageChange(currentPage - 1)}
-          disabled={currentPage === 1}
-          className="bg-gray-300 hover:bg-gray-400 text-gray-600 font-bold py-1 px-3 rounded-l"
-        >
-          Previous
-        </button>
-        <div className="flex items-center mx-2 text-gray-600">
-          Page {currentPage} of {totalPages}
-        </div>
-        <button
-          onClick={() => handlePageChange(currentPage + 1)}
-          disabled={currentPage === totalPages}
-          className="bg-gray-300 hover:bg-gray-400 text-gray-600 font-bold py-1 px-3 rounded-r"
-        >
-          Next
-        </button>
-      </div>
+      
+          <ReactPaginate
+            previousLabel={"pre"}
+            nextLabel={"next"}
+            breakLabel={"..."}
+            pageCount={totalPage}
+            pageRangeDisplayed={10}
+            onPageChange={handlePageChange}
+            containerClassName="flex items-center justify-end mt-4"
+            pageClassName="mx-1 px-3 py-2 rounded-lg bg-indigo-300 text-indigo-700"
+            previousClassName="mx-1 px-3 py-2 rounded-lg bg-indigo-300 text-indigo-700"
+            nextClassName="mx-1 px-3 py-2 rounded-lg bg-indigo-300 text-indigo-700"
+            activeClassName="bg-indigo-500"
+            disabledClassName="opacity-50 cursor-not-allowed"
+          />
+       
+      
     </>
   );
 };

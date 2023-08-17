@@ -1,7 +1,52 @@
+import React from "react";
 import { Images } from "../../Images/Images";
+import { loginApi } from "../../API";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useNavigate } from "react-router-dom";
 
+
+const schema = yup.object().shape({
+  email: yup
+    .string()
+    .required("Email is required.")
+    .email("Please enter a valid email."),
+    password: yup
+    .string()
+    .required("password is required."),
+});
 const AdminLogin =() =>
 {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid, isDirty },
+  } = useForm({
+    resolver: yupResolver(schema),
+    mode: "onChange",
+  });
+  const navigate = useNavigate();
+
+const onSubmit = (data) => {
+  console.log(data);
+  loginApi(data)
+    .then((responseData) => {
+      if (responseData) {
+        console.log("Login successful:", responseData);
+        localStorage.setItem("accesstoken", responseData.accesstoken); 
+        localStorage.setItem("refreshtoken",responseData.refreshtoken);
+        localStorage.setItem("accessTokenExpires",responseData.accessTokenExpires); 
+        navigate("/admin/dashboard");
+      } else {
+        console.error("Login failed.");
+      }
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+};
+
     return(
         <>
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -17,20 +62,20 @@ const AdminLogin =() =>
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" action="/admin/dashboard" >
+          <form className="space-y-6" onSubmit={handleSubmit(onSubmit)} >
             <div>
               <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                 Email address
               </label>
               <div className="mt-2">
                 <input
-                  id="email"
-                  name="email"
+                   {...register("email")}
                   type="email"
-                  autoComplete="email"
-                  required
                   className="block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300  placeholder:text-gray-400 sm:text-sm sm:leading-6"
                 />
+                  {errors.email && (
+                          <span className="text-red-600">{errors.email.message}</span>
+                        )}
               </div>
             </div>
 
@@ -47,27 +92,25 @@ const AdminLogin =() =>
               </div>
               <div className="mt-2">
                 <input
-                  id="password"
-                  name="password"
                   type="password"
-                  autoComplete="current-password"
-                  required
+                  {...register("password")}
                   className="block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                 />
+                    {errors.password && (
+                          <span className="text-red-600">{errors.password.message}</span>
+                        )}
               </div>
             </div>
-
             <div>
               <button
                 type="submit"
+                disabled={isDirty && !isValid}
                 className="flex w-full justify-center rounded-md bg-rose-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-600"
               >
                 Sign in
               </button>
             </div>
-          </form>
-
-       
+          </form>  
         </div>
       </div>
 

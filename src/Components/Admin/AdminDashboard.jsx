@@ -5,6 +5,9 @@ import TotalEnrollList from "./TotalEnrollList";
 import { Images } from "../../Images/Images";
 
 const AdminDashboard = () => {
+
+
+
   const sidebarRef = useRef(null);
   const maxSidebarRef = useRef(null);
   const miniSidebarRef = useRef(null);
@@ -18,16 +21,10 @@ const AdminDashboard = () => {
   }
 
   const [selectedContent, setSelectedContent] = useState("home"); // Add state for tracking selected content
-
- 
-
   // Function to handle content selection
   function handleContentSelection(content) {
     setSelectedContent(content);
   }
-
-
-
   // State to track if the dropdown is open or closed
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -38,13 +35,15 @@ const AdminDashboard = () => {
 
 // Function to handle logout
 const handleLogout = () => {
-  
-  
+  localStorage.removeItem("accesstoken");
+  localStorage.removeItem("refreshtoken");
+  localStorage.removeItem("accessTokenExpires")
+  window.location.pathname = "/admin";
 };
 
   return (
     <>
-      <div className="fixed w-full z-30 flex bg-white dark:bg-[#0F172A] p-2 items-center justify-center h-16 px-10">
+      <div className="fixed w-full z-30 flex bg-indigo-100 dark:bg-[#0F172A] p-2 items-center justify-center h-16 px-10">
         <div className="logo ml-12 text-black dark:text-white  transform ease-in-out duration-500 flex-none h-full flex items-center justify-center">
           FTS Academy
         </div>
@@ -78,7 +77,7 @@ const handleLogout = () => {
       {isDropdownOpen && (
         <div className="absolute right-0 mt-2 py-2 bg-indigo-200 rounded shadow-md">
           <button
-            // onClick={handleLogout}
+            onClick={handleLogout}
             className="block px-3 py-1 text-sm text-gray-700 hover:text-rose-700 w-full text-left focus:outline-none"
           >
             Logout
@@ -93,7 +92,7 @@ const handleLogout = () => {
         ref={sidebarRef}
         className={`w-60 ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-48"
-        } fixed transition transform ease-in-out duration-1000 z-50 flex h-screen bg-[#28235C]`}
+        } fixed transition transform ease-in-out duration-1000 z-50 flex h-screen bg-indigo-100`}
       >
         {/* Sidebar content */}
         <div

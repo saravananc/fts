@@ -31,7 +31,8 @@ const AdminLogin =() =>
 const onSubmit = (data) => {
   console.log(data);
   loginApi(data)
-    .then((responseData) => {
+    .then((responseData,failed) => {
+      console.log(responseData,failed);
       if (responseData) {
         console.log("Login successful:", responseData);
         localStorage.setItem("accesstoken", responseData.accesstoken); 
@@ -43,7 +44,8 @@ const onSubmit = (data) => {
       }
     })
     .catch((error) => {
-      console.error("Error:", error);
+      console.error(error);
+      console.log(error.toString()?.split(":")[1])
     });
 };
 

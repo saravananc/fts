@@ -5,9 +5,9 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 const AdminHome = () => {
-  
-  const [tableData, setTableData] = useState([]); 
-const [count,setCount]=useState();
+
+  const [tableData, setTableData] = useState([]);
+  const [count, setCount] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,7 +21,7 @@ const [count,setCount]=useState();
     };
     fetchData();
   }, []);
- 
+
   const totalEnrollmentCount = count;
 
   return (
@@ -46,14 +46,15 @@ const [count,setCount]=useState();
             </tr>
           </thead>
           <tbody>
-            {tableData.map((row, index) => (
+            {!!tableData?.length ? tableData.map((row, index) => (
               <tr key={index} className={index % 2 === 0 ? "bg-indigo-100" : "bg-indigo-100"}>
                 <td className="border border-indigo-200 px-4 py-2 whitespace-nowrap text-center">{row.name}</td>
                 <td className="border border-indigo-200 px-4 py-2 whitespace-nowrap text-center">{row.email}</td>
                 <td className="border border-indigo-200 px-4 py-2 whitespace-nowrap text-center">{row.phone_number}</td>
                 <td className="border border-indigo-200 px-4 py-2 whitespace-nowrap ">{row.message}</td>
               </tr>
-            ))}
+            )) : <td className="border border-indigo-200 px-4 py-2 whitespace-nowrap text-center" colSpan={4} >No data found</td>
+            }
           </tbody>
         </table>
       </div>

@@ -11,13 +11,15 @@ async function refreshAccessToken() {
   const apiUrl = `${process.env.REACT_APP_LOGIN_URL}/admin/refreshToken`;
   try {
     const response = await Axios.post(apiUrl, { refreshToken: refreshToken });
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
+    localStorage.clear();
+    console.log(response);
+    if(response?.status === 200){
+      localStorage.setItem("accesstoken", response?.data?.response?.accesstoken); 
+      localStorage.setItem("refreshtoken",response?.data?.response?.refreshtoken);
+    }else{
+      window.location.replace('/admin')
     }
-    localStorage.setItem("accesstoken", response.accesstoken); 
-    localStorage.setItem("refreshtoken",response.refreshtoken);
-    localStorage.setItem("accessTokenExpires",response.accessTokenExpires); 
-    return response.accesstoken;
+    return response?.data?.response?.accesstoken;
   } catch (error) {
     console.error('Error fetching API:', error);
   }
@@ -59,7 +61,9 @@ axiosInstance.interceptors.response.use(
         originalRequest._retry = true;
         const access_token = await refreshAccessToken();
         Axios.defaults.headers.common['Authorization'] = 'Bearer ' + access_token;
-        return axiosInstance(originalRequest);
+       setTimeout(() => {
+         return axiosInstance(originalRequest);
+       }, 2000);
       }
       // forbidden (permission related issues)
       case 403: {

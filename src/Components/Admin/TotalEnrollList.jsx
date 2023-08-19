@@ -27,7 +27,7 @@ const TotalEnrollList = () => {
       };
 
       
-      const apiUrl = `${LOGIN_URL}admin/getallusers?offset=${data}&limit=10`;
+      const apiUrl = `${LOGIN_URL}/admin/getallusers?offset=${data}&limit=10`;
 
       const dashboardResponse = await Axios.get(apiUrl, { headers });
 

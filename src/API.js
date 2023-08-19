@@ -21,7 +21,7 @@ export const contactApi = async (registrationData) => {
 
 
 export const loginApi = async (loginData) => {
-  const apiUrl = `admin/login`;
+  const apiUrl = `/admin/login`;
   try {
     const loginresponse = await axiosInstance.post(apiUrl, loginData);
     return loginresponse.data;
@@ -35,7 +35,7 @@ export const loginApi = async (loginData) => {
 
 export const dashboardlimitApi = async () => {
   try {
-    const apiUrl = `admin/getuserlist`;
+    const apiUrl = `/admin/getuserlist`;
     const dashboardLimitCount = await axiosInstance.get(apiUrl);   
     return dashboardLimitCount?.data?.response?.userDetails;
   } catch (error) {

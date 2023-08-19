@@ -5,10 +5,29 @@ export const axiosInstance = Axios.create({
   timeout: 10000,
 });
 
+
+async function refreshAccessToken() {
+  const refreshToken = localStorage.getItem("refreshtoken");
+  const apiUrl = `${process.env.REACT_APP_LOGIN_URL}/admin/refreshToken`;
+  try {
+    const response = await Axios.post(apiUrl, { refreshToken: refreshToken });
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    localStorage.setItem("accesstoken", response.accesstoken); 
+    localStorage.setItem("refreshtoken",response.refreshtoken);
+    localStorage.setItem("accessTokenExpires",response.accessTokenExpires); 
+    return response.accesstoken;
+  } catch (error) {
+    console.error('Error fetching API:', error);
+  }
+}
+
 axiosInstance.interceptors.request.use(
-  function (config) {
+  async function (config) {
     console.log(config);
     const token = localStorage.getItem("accesstoken");
+    console.log(config?.url, !token && !config?.url?.includes('/admin/login'), "-----------------");
     if (!token && !config?.url?.includes('/admin/login')) {
       throw new Error("Access token not found in local storage");
     }
@@ -29,15 +48,18 @@ axiosInstance.interceptors.response.use(
     console.log(response);
     return response;
   },
-  function (err) {
+  async function (err) {
     const status = err.response?.status || 500;
     // we can handle global errors here
-    console.log(err);
+    const originalRequest = err.config;
+
     switch (status) {
       // authentication (token related issues)
       case 401: {
-        
-        throw new Error(err?.response?.data?.message);
+        originalRequest._retry = true;
+        const access_token = await refreshAccessToken();
+        Axios.defaults.headers.common['Authorization'] = 'Bearer ' + access_token;
+        return axiosInstance(originalRequest);
       }
       // forbidden (permission related issues)
       case 403: {

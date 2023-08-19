@@ -62,9 +62,9 @@ axiosInstance.interceptors.response.use(
        }, 2000);
       }
       // forbidden (permission related issues)
+      break;
       case 403: {
         throw new Error(err?.response?.data?.message);
-
       }
       // bad request
       case 400: {

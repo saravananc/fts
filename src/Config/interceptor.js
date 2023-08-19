@@ -12,7 +12,6 @@ async function refreshAccessToken() {
   try {
     const response = await Axios.post(apiUrl, { refreshToken: refreshToken });
     localStorage.clear();
-    console.log(response);
     if(response?.status === 200){
       localStorage.setItem("accesstoken", response?.data?.response?.accesstoken); 
       localStorage.setItem("refreshtoken",response?.data?.response?.refreshtoken);
@@ -27,9 +26,7 @@ async function refreshAccessToken() {
 
 axiosInstance.interceptors.request.use(
   async function (config) {
-    console.log(config);
     const token = localStorage.getItem("accesstoken");
-    console.log(config?.url, !token && !config?.url?.includes('/admin/login'), "-----------------");
     if (!token && !config?.url?.includes('/admin/login')) {
       throw new Error("Access token not found in local storage");
     }
@@ -47,7 +44,6 @@ axiosInstance.interceptors.request.use(
 
 axiosInstance.interceptors.response.use(
   function (response) {
-    console.log(response);
     return response;
   },
   async function (err) {

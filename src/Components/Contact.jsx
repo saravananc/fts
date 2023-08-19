@@ -34,7 +34,6 @@ const Contact = () => {
     mode: "onChange",
   });
   const onSubmit = (data) => {
-    console.log(data);
     contactApi(data)
     .then((data) => {
       // Handle successful API response here

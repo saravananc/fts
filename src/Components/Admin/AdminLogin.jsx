@@ -29,12 +29,10 @@ const AdminLogin =() =>
   const navigate = useNavigate();
 
 const onSubmit = (data) => {
-  console.log(data);
   loginApi(data)
     .then((responseData,failed) => {
       console.log(responseData,failed);
       if (responseData) {
-        console.log("Login successful:", responseData);
         localStorage.setItem("accesstoken", responseData.accesstoken); 
         localStorage.setItem("refreshtoken",responseData.refreshtoken);
         localStorage.setItem("accessTokenExpires",responseData.accessTokenExpires); 
@@ -45,7 +43,7 @@ const onSubmit = (data) => {
     })
     .catch((error) => {
       console.error(error);
-      console.log(error.toString()?.split(":")[1])
+      // console.log(error.toString()?.split(":")[1])
     });
 };
 
